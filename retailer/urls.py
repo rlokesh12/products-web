@@ -11,7 +11,7 @@ v1_api.register(CategoryResource())
 
 urlpatterns = [
     url(r'^dashboard/$', dashboard),
-    url(r'^(?P<product_id>[0-9]+)/(?P<category_id>[0-9]+)/editProduct/$', editProduct),
+    url(r'^(?P<product_id>[0-9]+)/editProduct/$', editProduct),
     url(r'^addProduct/$',addProduct.as_view()),
     url(r'^api/', include(v1_api.urls)),
 

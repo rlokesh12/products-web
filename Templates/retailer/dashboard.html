@@ -36,7 +36,7 @@
                     <tr ng-repeat="p in productList">
                         <td>{( p.name )}</td>
                         <td>{( selectedCategoryName )}</td>
-                        <td><span class="edit_pro" ng-click="editProduct(p.id,selectedCategory)">Edit</span></td>
+                        <td><span class="edit_pro" ng-click="editProduct(p.id)">Edit</span></td>
                         <td><span class="remove_pro" ng-click="removeProduct(p.id,selectedCategory)">Remove</span></td>
                     </tr>
                 </tbody>

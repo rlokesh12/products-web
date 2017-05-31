@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from home.models import *
 from home.views import *
+import pdb
 # Create your views here.
 
 
@@ -13,7 +14,7 @@ def dashboard(request):
         return redirect('/login/')
 
 
-def editProduct(request, product_id, category_id):
+def editProduct(request, product_id):
     if request.method == 'GET':
         if request.user.is_authenticated():
             mem = Member.objects.get(username=request.user.username)
@@ -26,7 +27,6 @@ def editProduct(request, product_id, category_id):
             response.update({
                 "product": pro,
                 "categories": cat,
-                "category": int(category_id)
             })
             return render(request,'retailer/editProduct.html',response)
         else:
@@ -61,6 +61,7 @@ class addProduct(View):
             return render(request, 'home/addProduct.html', self.response)
 
     def post(self, request):
+        print("inside")
         form = productForm(request.POST)
         if form.is_valid():
             product = form.save()

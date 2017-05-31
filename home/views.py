@@ -9,6 +9,7 @@ from .models import *
 from django import forms
 from django.forms import ModelForm
 import json
+import pdb
 # Create your views here.
 
 # Forms begin
@@ -159,8 +160,7 @@ def removeProduct(request):
     response = {'msg': 'Success'}
     # print(request.GET['category'])
     # print(jsonRequest)
-    json_request = json.loads(request.body)
-    productId = json_request.get('productId')
+    productId = request.GET['productId']
     try:
         pro = Products.objects.get(id=int(productId))
         pro.delete()

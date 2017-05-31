@@ -54,17 +54,16 @@
                 })
 
         }
-        $scope.editProduct = function (productId,categoryId) {
-
-            var url = '/retailer/editProduct/';
+        $scope.editProduct = function (productId) {
+            var url = '/retailer/'+productId+'/editProduct/';
             $window.location.href = url;
         };
         $scope.removeProduct = function (productId,categoryId) {
             var url = '/removeProduct/';
             $http({
                 url: url,
-                method: "POST",
-                data:{"productId": productId}
+                method: "GET",
+                params:{"productId": productId}
             })
                 .then(function (response) {
                     console.log("removed")
