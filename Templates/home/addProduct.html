@@ -1,0 +1,21 @@
+{% extends 'retailer/retailerBase.html' %}
+{% block title %}
+<title>Add Product</title>
+{% endblock title %}
+
+{% block body %}
+    <div id="page-wrapper">
+        <div>
+            <h2>{{ addProductMsg }}</h2>
+        </div>
+        {% if method == 'GET' %}
+            <form method="post">
+                {% csrf_token %}
+                <table>
+                    {{ form }}
+                </table>
+                <button type="submit">Register</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock body %}

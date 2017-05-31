@@ -1,0 +1,47 @@
+{% extends 'retailer/retailerBase.html' %}
+{% block title %}
+<title>Retailer Dashboard</title>
+{% endblock title %}
+
+{% block scripts %}
+<script src="/static/js/retailerDashboard.js"></script>
+{% endblock scripts %}
+
+{% block body %}
+    <div ng-controller="retailerDashController" id="page-wrapper">
+        <div>
+            <h2>Product List</h2>
+        </div>
+        <div class="row">
+            <div class="sel_model">
+                    <form>
+                        <select class="bran_part" ng-model="selectedCategory" ng-change="getModels()">
+                            <option value="" disabled selected>Select your Category</option>
+                            <option ng-repeat="c in categories" value="{(c.id)}">{( c.name )}</option>
+                        </select>
+                    </form>
+            <button class="submit_button" ng-click="getProductList(selectedCategory)">submit</button>
+                </div>
+        <div class="case_table" >
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category Name</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in productList">
+                        <td>{( p.name )}</td>
+                        <td>{( selectedCategoryName )}</td>
+                        <td><span class="edit_pro" ng-click="editProduct(p.id,selectedCategory)">Edit</span></td>
+                        <td><span class="remove_pro" ng-click="removeProduct(p.id,selectedCategory)">Remove</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+{% endblock body %}
