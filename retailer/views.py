@@ -56,23 +56,27 @@ class addProduct(View):
                 'msg': "Welcome "+mem.name,
                 'method': 'GET',
                 'addProductMsg': 'Add Product',
-                'form': form.as_table(),
+                'form': form,
             })
-            return render(request, 'home/addProduct.html', self.response)
+            return render(request, 'retailer/addProduct.html', self.response)
 
     def post(self, request):
         print("inside")
         form = productForm(request.POST)
+        new_form = productForm()
+        print(new_form)
         if form.is_valid():
             product = form.save()
             self.response.update({
                 'addProductMsg': 'Product added Successfully',
-                'method': 'GET'
+                'method': 'GET',
+                'form': new_form
             })
             return render(request, 'retailer/addProduct.html', self.response)
         else:
             self.response.update({
                 'addProductMsg': 'Invalid Input',
-                'method': 'GET'
+                'method': 'GET',
+                'form': new_form
             })
             return render(request, 'retailer/addProduct.html', self.response)

@@ -9,12 +9,12 @@
             <h2>{{ addProductMsg }}</h2>
         </div>
         {% if method == 'GET' %}
-            <form method="post">
+            <form method="post" action=".">
                 {% csrf_token %}
                 <table>
                     {{ form }}
                 </table>
-                <button type="submit">Register</button>
+                <button type="submit">Save</button>
             </form>
         {% endif %}
     </div>

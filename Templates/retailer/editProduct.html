@@ -13,7 +13,7 @@
             <div>
                 <h2>Edit Product</h2>
             </div>
-            <form method="post">
+            <form method="post" action=".">
                 {% csrf_token %}
                 <table>
                     <tbody>
@@ -46,7 +46,7 @@
                                 <label for="id_category">Category</label>
                             </th>
                             <td>
-                                <select name="category" ng-model="categoryDetails.name" ng-options="c.name for c in categories"></select>
+                                <select name="category" ng-model="categoryDetails.id" ng-options="c.name for c in categories track by c.id"></select>
                             </td>
                         </tr>
                     </tbody>
