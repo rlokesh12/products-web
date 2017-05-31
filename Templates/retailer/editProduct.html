@@ -22,7 +22,7 @@
                                 <label for="id_name">Name:</label>
                             </th>
                             <td>
-                                <input id="id_name" maxlength="100" name="name" value="{{ product.name }}" type="text">
+                                <input id="id_name" maxlength="100" name="name" ng-model="productDetails.name" type="text">
                             </td>
                         </tr>
                         <tr>
@@ -30,7 +30,7 @@
                                 <label for="id_price">Price:</label>
                             </th>
                             <td>
-                                <input id="id_price" min="0" name="price" type="number" value="{{ product.price }}">
+                                <input id="id_price" min="0" name="price" type="number" ng-model="productDetails.price">
                             </td>
                         </tr>
                         <tr>
@@ -38,7 +38,7 @@
                                 <label for="id_image">Image:</label>
                             </th>
                             <td>
-                                <input id="id_image" maxlength="500" name="image" type="text" value="{{ product.image }}">
+                                <input id="id_image" name="image" type="file" ng-src="{(productDetails.image)}">
                             </td>
                         </tr>
                         <tr>
@@ -46,15 +46,7 @@
                                 <label for="id_category">Category</label>
                             </th>
                             <td>
-                                <select name="category" >
-                                    {% for c in categories %}
-                                        {% if c.id == category %}
-                                            <option value="{{ c.id }}" selected>{{ c.name }}</option>
-                                        {% else %}
-                                            <option value="{{ c.id }}">{{ c.name }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
+                                <select name="category" ng-model="categoryDetails.name" ng-options="c.name for c in categories"></select>
                             </td>
                         </tr>
                     </tbody>

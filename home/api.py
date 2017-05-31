@@ -17,5 +17,6 @@ class ProductResource(ModelResource):
     class Meta:
         queryset = Products.objects.all()
         filtering = {
+            'id': ALL_WITH_RELATIONS,
             'category': ALL_WITH_RELATIONS
         }
