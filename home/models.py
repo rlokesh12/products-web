@@ -27,7 +27,7 @@ class Category(models.Model):
 class Products(models.Model):
     name = models.CharField(max_length=100, unique=True)
     price = models.PositiveIntegerField(default=0)
-    image = models.ImageField(upload_to='/media/products/', default='/media/products/no_image.jpg')
+    image = models.ImageField(default='/media/products/no_image.jpg')
     category = models.ForeignKey(Category)
 
     def __unicode__(self):

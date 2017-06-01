@@ -38,7 +38,8 @@
                                 <label for="id_image">Image:</label>
                             </th>
                             <td>
-                                <input id="id_image" name="image" type="file" ng-src="{(productDetails.image)}">
+                                <img ng-src="{(productDetails.image)}" height="190" width="175">
+                                <input id="id_image" name="image" type="file" >
                             </td>
                         </tr>
                         <tr>
@@ -46,7 +47,7 @@
                                 <label for="id_category">Category</label>
                             </th>
                             <td>
-                                <select name="category" ng-model="categoryDetails.id" ng-options="c.name for c in categories track by c.id"></select>
+                                <select name="category" ng-model="categoryDetails.id" ng-options="c.id as c.name for c in categories"></select>
                             </td>
                         </tr>
                     </tbody>

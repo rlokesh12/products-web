@@ -9,7 +9,7 @@
             <h2>{{ addProductMsg }}</h2>
         </div>
         {% if method == 'GET' %}
-            <form method="post" action=".">
+            <form method="post" action="." enctype="multipart/form-data">
                 {% csrf_token %}
                 <table>
                     {{ form }}

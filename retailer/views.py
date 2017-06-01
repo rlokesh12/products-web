@@ -22,20 +22,16 @@ def editProduct(request, product_id):
                 'msg': "Welcome "+mem.name,
                 'method': 'GET',
             }
-            pro = Products.objects.get(id=int(product_id))
-            cat = Category.objects.all()
-            response.update({
-                "product": pro,
-                "categories": cat,
-            })
             return render(request,'retailer/editProduct.html',response)
         else:
             return redirect('/login/')
     if request.method == 'POST':
+        print(request.POST['image'])
         pro = Products.objects.get(id=int(product_id))
         pro.name = request.POST['name']
         pro.price = request.POST['price']
-        pro.image = request.POST['image']
+        if(request.POST['image']):
+            pro.image = request.POST['image']
         pro.category = Category.objects.get(id=int(request.POST['category']))
         pro.save()
         return redirect('/retailer/dashboard')
@@ -62,7 +58,7 @@ class addProduct(View):
 
     def post(self, request):
         print("inside")
-        form = productForm(request.POST)
+        form = productForm(request.POST, request.FILES)
         new_form = productForm()
         print(new_form)
         if form.is_valid():
