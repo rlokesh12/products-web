@@ -71,3 +71,48 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+/*Show products css*/
+
+.list_right_item ul li:hover {
+box-shadow: 0px 0px 4px #ece7ec;
+transition: all 200ms;
+}
+.list_right_item ul li {
+    list-style: none;
+    float: left;
+    width: 23%;
+    margin-bottom: 15px;
+    text-align: center;
+    margin-right: 15px;
+    background-color: #fff;
+padding-bottom: 8px;
+border: 1px solid #ececdd;
+    cursor: pointer;
+height: 100%;
+transition: all 200ms;
+position: relative;
+}
+.list_right_item ul li h4 {
+margin: 3px 0px;
+text-transform: capitalize;
+font-size: 13px;
+color: #575252;
+font-family: open sans;
+line-height: 18px;
+text-align: center;
+padding: 0px 5px;
+height: 40px;
+}
+.list_right_item ul li span {
+    margin: 14px 0px;
+text-transform: capitalize;
+letter-spacing: 0.4px;
+font-size: 14px;
+color: #93939C;
+font-family: open sans;
+}
+.list_right_item ul li img.pro_img2 {
+    width: 80% !important;
+    padding: 12px;
+}

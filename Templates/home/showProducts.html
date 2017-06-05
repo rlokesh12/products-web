@@ -27,6 +27,7 @@
 
     <!-- Custom CSS -->
     <link href="/static/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/static/css/dashboard.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -83,6 +84,9 @@
                             </div>
                             <!-- /input-group -->
                         </li>
+                        <li ng-click="getProductList('all')">
+                            <span ng-click="getProductList('all')">All Products</span>
+                        </li>
                         <li ng-click="getProductList(c.name)" ng-repeat="c in categories">
                             <span ng-click="getProductList(c.name)">{( c.name )}</span>
 {#                            <a href="index.html">#}
@@ -107,8 +111,21 @@
                 <h2>{( selectedCategory )}</h2>
             </div>
             <div class="row">
-                <div ng-repeat="p in productList" class="col-lg-4">
-                    {( p.name )}
+{#                <div ng-repeat="p in productList" class="col-lg-4">#}
+{#                    {( p.name )}#}
+{#                </div>#}
+                <div class="list_right_item">
+                    <ul>
+                        <li ng-repeat="p in productList" >
+{#                            <span id="add_cart_img"><img src="/static/template_new/img/addcart.png" ng-click="addToCart(item)"></span>#}
+                            <img  src="{(p.image)}" class="pro_img2">
+                            <h4> {(p.name)}</h4>
+                            <div class="list_item_bottom">
+                                <span class="new_price">Rs.{(p.price)}</span>
+                            </div>
+                            <!-- list items are here -->
+                        </li>
+                    </ul>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
