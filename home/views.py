@@ -137,7 +137,17 @@ def register(request):
                 response.update({
                     'msg': 'Registration Successful'
                 })
-                return render(request, 'home/home_page.html', response)
+                user = authenticate(username=mem.username, password=mem.pwd)
+                if user is not None:
+                    login(request, user)
+                    if mem.role == "Retailer":
+                        response = {
+                            'msg': mem.name,
+                            'method': 'GET'
+                        }
+                        return redirect('/retailer/dashboard/')
+                    elif mem.role == "Customer":
+                        return redirect('/')
         else:
             f = reg()
             response.update({
