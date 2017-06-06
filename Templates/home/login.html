@@ -13,8 +13,29 @@
     <!-- Custom Fonts -->
     <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body style="background-color: #7b6060">
     {% if method == "GET" %}
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+    {#            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">#}
+    {#                <span class="sr-only">Toggle navigation</span>#}
+    {#                <span class="icon-bar"></span>#}
+    {#                <span class="icon-bar"></span>#}
+    {#                <span class="icon-bar"></span>#}
+    {#            </button>#}
+                <a class="navbar-brand" href="/">LOGO</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <h4><a href="../register/">Register</a></h4>
+                </li>
+                <li>
+                    <h4><a href="../login/">Login</a></h4>
+                </li>
+            </ul>
+        </nav>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
